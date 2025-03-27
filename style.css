@@ -1,0 +1,107 @@
+:root {
+  --color-indigo: #233f57;
+  --color-lapis: rgb(28, 79, 124);
+  --color-mint: #09bc8a;
+
+  --color-white: #ebecec;
+  --color-white-alt: #f7f6f6;
+  --color-black: #0c151d;
+  --color-black-alt: #141c24;
+
+  --color-background: var(--color-white);
+  --color-background-alt: var(--color-white-alt);
+  --color-text: var(--color-black);
+  --color-text-alt: var(--color-black-alt);
+
+  --color-primary: var(--color-indigo);
+  --color-secondary: var(--color-lapis);
+  --color-tertiary: var(--color-mint);
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--color-black);
+    --color-background-alt: var(--color-black-alt);
+    --color-text: var(--color-white);
+    --color-text-alt: var(--color-white-alt);
+    color-scheme: dark;
+  }
+} */
+
+/* Layout debugger */
+/* * {
+  border: 1px solid red;
+} */
+
+body {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+header {
+  background-color: var(--color-background-alt);
+}
+
+footer {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+p {
+  max-width: 30em;
+}
+
+/*Inline scrolling */
+/* .inline-scrollbar::-webkit-scrollbar {
+  background-color: none;
+  width: 8px;
+  margin-left: 4px;
+}
+
+.inline-scrollbar::-webkit-scrollbar-button {
+    color:
+}
+.inline-scrollbar::-webkit-scrollbar:hover {
+  background-color: var(--color-background-shade);
+  width: 8px;
+  cursor: pointer;
+}
+
+.inline-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 6px;
+} */
+
+.btn {
+  border: 1px solid var(--color-text-alt);
+  border-radius: 4px;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Loader copied from https://cssloaders.github.io/ */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #fff;
+  border-bottom-color: var(--color-primary);
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

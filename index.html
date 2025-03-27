@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Omega365 Task</title>
+    <title>Omega 365 Task</title>
 
     <!-- add bootstrap -->
     <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js "></script>
@@ -18,8 +18,63 @@
       integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
       crossorigin="anonymous"
     ></script>
+
+    <!-- external css -->
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <h1>Index</h1>
+    <header class="pt-4 mb-5 px-3 container-fluid">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid align-items-end">
+          <div>
+            <a class="navbar-brand" href="./index.html">
+              Omega 365<br />Assignment
+            </a>
+          </div>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li col="nav-item">
+                <a
+                  href="./index.html"
+                  class="nav-link active"
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              <li col="nav-item">
+                <a href="./profile.html" class="nav-link">Profile</a>
+              </li>
+              <li col="nav-item">
+                <a href="./posts.html" class="nav-link">Posts</a>
+              </li>
+              <li col="nav-item">
+                <a href="./layout.html" class="nav-link">Layout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container-fluid">
+      <h1>Main</h1>
+    </main>
+    <footer class="container-fluid mt-5 py-3 d-flex justify-content-end">
+      <span>
+        <a href="https://pnbakken.com" class="text-white">Pål N. Bakken</a>
+        - Home assignment for Omega 365
+      </span>
+    </footer>
   </body>
 </html>
