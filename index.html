@@ -19,11 +19,20 @@
       crossorigin="anonymous"
     ></script>
 
-    <!-- external css -->
-    <link rel="stylesheet" href="./style.css" />
+    <!-- fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/d11407044f.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- global css -->
+    <link rel="stylesheet" href="./style.css" type="text/css" />
+
+    <!--helper snippets-->
+    <script src="./script.js"></script>
   </head>
   <body>
-    <header class="pt-4 mb-5 px-3 container-fluid">
+    <header class="pt-4 px-3 container-fluid">
       <nav class="navbar navbar-expand-lg">
         <div class="container-fluid align-items-end">
           <div>
@@ -67,10 +76,62 @@
         </div>
       </nav>
     </header>
-    <main class="container-fluid">
-      <h1>Main</h1>
-    </main>
-    <footer class="container-fluid mt-5 py-3 d-flex justify-content-end">
+    <div class="container-fluid position-relative p-0">
+      <!-- Sidebar -->
+
+      <div class="sidebar-wrapper dark-bg position-absolute p-0">
+        <div class="sidebar">
+          <!-- <div style="width: 100%; display: flex; justify-content: flex-end"> -->
+          <button class="btn btn-toggle-sidebar toggle-out" type="button">
+            <i class="fa-solid fa-arrow-down"></i>
+          </button>
+          <!-- </div> -->
+          <div class="inner-wrapper">
+            <div class="sidebar-content">
+              <ul class="sidebar-nav list-unstyled flex-column text-white mt-3">
+                <li class="sidebar-nav-item gap-1">
+                  <a
+                    href="./index.html"
+                    class="sidebar-nav-link px-2 py-2 active"
+                    aria-current="page"
+                  >
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                  </a>
+                </li>
+                <li class="sidebar-nav-item gap-1">
+                  <a
+                    href="./profile.html"
+                    class="sidebar-nav-link px-2 py-2 px-2 py-2"
+                  >
+                    <i class="fa-solid fa-user"></i>
+                    <span>Profile</span>
+                  </a>
+                </li>
+                <li class="sidebar-nav-item gap-1">
+                  <a
+                    href="./posts.html"
+                    class="sidebar-nav-link px-2 py-2 px-2 py-2"
+                    aria-current="page"
+                  >
+                    <i class="fa-solid fa-blog"></i>
+                    <span>Posts</span>
+                  </a>
+                </li>
+                <li class="sidebar-nav-item gap-1">
+                  <a href="./layout.html" class="sidebar-nav-link px-2 py-2">
+                    <i class="fa-solid fa-table"></i>
+                    <span>Layout</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <main class="container-fluid"></main>
+    </div>
+    <footer class="container-fluid py-3 d-flex justify-content-end">
       <span>
         <a href="https://pnbakken.com" class="text-white">Pål N. Bakken</a>
         - Home assignment for Omega 365

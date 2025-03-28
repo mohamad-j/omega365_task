@@ -1,3 +1,19 @@
+//Global INIT
+
+$(document).ready(function () {
+  $(document).find(".btn-toggle-sidebar").off().on("click", toggleSidebar);
+
+  $(document)
+    .find(".sidebar-wrapper")
+    .off()
+    .on("mouseenter", function () {
+      $(this).find(".sidebar").addClass("show");
+    })
+    .on("mouseleave", function () {
+      $(this).find(".sidebar").removeClass("show");
+    });
+});
+
 /**
  * Truncates a given string to a given length, adding an ellipsis
  * if the string is longer than the given length.
@@ -30,6 +46,17 @@ function capitalizeFirstLetter(string = "") {
 function displayLoader(container) {
   const loaderHtml = `<div class="loader-container container-fluid text-center"><div class="loader"></div></div>`;
   $(container).html(loaderHtml);
+}
+
+function toggleSidebar() {
+  console.log("click");
+
+  $(".sidebar").toggleClass("show clicked");
+  if ($(".sidebar").hasClass("clicked")) {
+    $(".toggle-out").html('<i class="fa-solid fa-arrow-right"></i>');
+  } else {
+    $(".toggle-out").html('<i class="fa-solid fa-arrow-down"></i>');
+  }
 }
 
 /**
