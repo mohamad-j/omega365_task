@@ -97,7 +97,7 @@
                 <li class="sidebar-nav-item gap-1">
                   <a
                     href="./profile.html"
-                    class="sidebar-nav-link px-2 py-2 px-2 py-2 active"
+                    class="sidebar-nav-link px-2 py-2 active"
                     aria-current="page"
                   >
                     <i class="fa-solid fa-user"></i>
@@ -107,7 +107,7 @@
                 <li class="sidebar-nav-item gap-1">
                   <a
                     href="./posts.html"
-                    class="sidebar-nav-link px-2 py-2 px-2 py-2"
+                    class="sidebar-nav-link px-2 py-2"
                     aria-current="page"
                   >
                     <i class="fa-solid fa-blog"></i>
@@ -125,13 +125,113 @@
           </div>
         </div>
       </div>
-      <main class="container-fluid"></main>
+      <main class="container-fluid">
+        <section
+          class="container-sm profile-section mt-5 py-5 d-flex-column align-items-center"
+        >
+          <div class="container-fluid mb-3">
+            <h1>Profile info</h1>
+          </div>
+          <div
+            class="profile-info-container profile-header-info px-3 pt-3 pb-2"
+          >
+            <div class="profile-avatar-container">
+              <img
+                src="./assets/img/dave.png"
+                style="
+                  width: 128px;
+                  height: 128px;
+                  border-radius: 50%;
+                  object-fit: cover;
+                  object-position: center top;
+                "
+              />
+            </div>
+            <div>
+              <div class="profile-name"><h3>David Lastname</h3></div>
+              <span class="tel">Phone: +47 4545 4545</span>
+              <span class="age">Age: 99</span>
+            </div>
+          </div>
+          <div class="profile-info-container px-3 pt-5 pb-2 mt-5">
+            <div
+              class="main-profile-info-wrapper d-flex flex-row flex-wrap-reverse"
+            >
+              <div class="col-sm-9">
+                <div class="profile-info-group mb-5">
+                  <h4>Occupation</h4>
+                  <p>Employed worker</p>
+                </div>
+                <div class="profile-info-group mb-5">
+                  <h4>Description</h4>
+                  <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                    Vitae magnam laboriosam cumque dignissimos dolor maiores
+                    explicabo nam culpa suscipit saepe quod nemo inventore
+                    repellat, sit cupiditate ipsum nisi doloremque ducimus!
+                  </p>
+                </div>
+                <div class="profile-info-group mb-5">
+                  <h4>Skills</h4>
+                  <ul class="">
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JS</li>
+                    <li>PHP</li>
+                    <li>SQL</li>
+                  </ul>
+                </div>
+                <div class="profile-info-group mb-5">
+                  <h4>Interests</h4>
+                  <p>
+                    Avid reader, music enthusiast, kite-surfer and dog owner.
+                  </p>
+                </div>
+              </div>
+              <div class="col-sm-3 d-flex flex-column align-items-end mb-5">
+                <div class="profile-info-group me-3">
+                  <h4>Address</h4>
+                  <p>
+                    Street name 1<br />
+                    Street name 2<br />
+                    1234 City<br />
+                    Norway
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
     </div>
     <footer class="container-fluid py-3 d-flex justify-content-end">
       <span>
-        <a href="https://pnbakken.com" class="text-white">Pål N. Bakken</a>
+        <a href="https://pnbakken.com" class="">Pål N. Bakken</a>
         - Home assignment for Omega 365
       </span>
     </footer>
   </body>
 </html>
+
+<style>
+  .profile-section {
+    background-color: var(--color-background-alt);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-info-container {
+    width: 100%;
+    max-width: 800px;
+    background-color: var(--color-background);
+    border-radius: 4px;
+  }
+
+  .profile-header-info {
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+</style>

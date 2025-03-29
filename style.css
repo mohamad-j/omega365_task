@@ -1,10 +1,10 @@
 :root {
   --color-indigo: #233f57;
-  --color-lapis: rgb(28, 79, 124);
+  --color-lapis: #1c4f7c;
   --color-mint: #09bc8a;
 
   --color-white: #ebecec;
-  --color-white-alt: #f7f6f6;
+  --color-white-alt: rgb(216, 216, 216);
   --color-black: #0c151d;
   --color-black-alt: #141c24;
 
@@ -46,16 +46,28 @@ body {
 }
 
 header {
-  background-color: var(--color-background-alt);
+  background-color: var(--color-background);
+  position: relative;
+  padding-bottom: 16px;
+}
+
+header::after {
+  content: "";
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
 }
 
 main {
-  margin-left: 48px;
+  margin-left: 56px;
 }
 
 footer {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--color-background-alt);
+  color: var(--color-text);
   z-index: 10;
 }
 
@@ -65,6 +77,7 @@ p {
 
 a {
   text-decoration: none;
+  color: var(--color-text);
 }
 
 /*Inline scrolling */
@@ -88,8 +101,18 @@ a {
   border-radius: 6px;
 } */
 
+.navbar-nav .nav-link {
+  color: var(--color-text-alt);
+}
+
+.navbar .navbar-brand,
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  color: var(--color-text);
+}
+
 .btn {
-  border: 1px solid var(--color-text-alt);
+  border: 1px solid transparent;
   border-radius: 4px;
   width: fit-content;
   height: fit-content;
@@ -99,6 +122,7 @@ a {
 .btn:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+  border: 1px solid var(--color-primary);
 }
 
 .btn-primary {
@@ -110,17 +134,19 @@ a {
   z-index: 99;
 }
 
+/***** SIDEBAR *****/
+
 .sidebar-wrapper {
   width: fit-content;
   height: 100%;
 
-  min-width: 32px;
+  min-width: 48px;
 
   z-index: 5 !important;
   background: var(--color-primary);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .sidebar-wrapper {
     display: none;
   }
@@ -130,6 +156,7 @@ a {
   display: grid;
   grid-template-columns: 0fr;
   transition: all 0.5s ease-in-out;
+  font-size: 18px;
 }
 
 .sidebar.show,
@@ -145,6 +172,11 @@ a {
   max-width: 256px;
 }
 
+.sidebar .btn {
+  color: var(--color-white) !important;
+  width: 48px;
+}
+
 .sidebar-nav-link {
   display: flex;
   flex-direction: row;
@@ -152,10 +184,11 @@ a {
   width: 100%;
   justify-content: space-between;
   transition: 0.5s ease;
+  padding-left: 12px !important;
 }
 .sidebar-nav-link.active,
 .sidebar-nav-link:hover {
-  background-color: var(--color-background-alt);
+  background-color: var(--color-background);
   color: var(--color-text);
   position: relative;
 }

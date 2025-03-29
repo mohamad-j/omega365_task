@@ -1,17 +1,18 @@
-//Global INIT
-
+//Global init
 $(document).ready(function () {
-  $(document).find(".btn-toggle-sidebar").off().on("click", toggleSidebar);
+  (function initSidebar() {
+    $(document).find(".btn-toggle-sidebar").off().on("click", toggleSidebar);
 
-  $(document)
-    .find(".sidebar-wrapper")
-    .off()
-    .on("mouseenter", function () {
-      $(this).find(".sidebar").addClass("show");
-    })
-    .on("mouseleave", function () {
-      $(this).find(".sidebar").removeClass("show");
-    });
+    $(document)
+      .find(".sidebar-wrapper")
+      .off()
+      .on("mouseenter", function () {
+        $(this).find(".sidebar").addClass("show");
+      })
+      .on("mouseleave", function () {
+        $(this).find(".sidebar").removeClass("show");
+      });
+  })();
 });
 
 /**
