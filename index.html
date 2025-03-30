@@ -126,7 +126,36 @@
           </div>
         </div>
       </div>
-      <main class="container-fluid"></main>
+      <main
+        class="container-fluid d-flex align-items-center justify-content-center"
+      >
+        <div
+          class="container content-container d-flex align-items-end p-0 position-relative"
+        >
+          <div
+            class="container-fluid p-2 py-5 d-flex flex-column align-items-center"
+          >
+            <div><h1>Presentation for Omega 365</h1></div>
+            <div>
+              <div class="d-flex flex-wrap gap-5 text-large mt-3">
+                <a
+                  class="text-white fs-4 position-relative"
+                  href="./profile.html"
+                  >Profile
+                </a>
+                <a class="text-white fs-4 position-relative" href="./posts.html"
+                  >Posts
+                </a>
+                <a
+                  class="text-white fs-4 position-relative"
+                  href="./layout.html"
+                  >Layout
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
     <footer class="container-fluid py-3 d-flex justify-content-end">
       <span>
@@ -136,3 +165,53 @@
     </footer>
   </body>
 </html>
+
+<style>
+  main {
+    min-height: 80%;
+  }
+
+  .content-container {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    background: url("./assets/img/cover-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+  }
+
+  .content-container > div {
+    color: var(--color-white);
+    z-index: 2;
+  }
+
+  .content-container::before {
+    content: "";
+    width: 100%;
+    height: 50%;
+    background-color: var(--color-primary);
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+    opacity: 0.7;
+  }
+
+  .content-container a:after {
+    content: "";
+    width: 80%;
+    height: 2px;
+    background-color: var(--color-tertiary);
+    position: absolute;
+    transform-origin: center;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    transform: scalex(0);
+    transition: 0.5s ease;
+  }
+
+  .content-container a:hover:after {
+    transform: scalex(1);
+  }
+</style>

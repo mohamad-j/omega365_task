@@ -68,8 +68,8 @@
           const data = await response.json();
           if (data && Array.isArray(data)) {
             posts = data;
-            console.log(data);
-            renderPosts(data);
+
+            renderPosts(posts);
           } else {
             throw new Error("Unable to fetch posts.");
           }
@@ -98,6 +98,9 @@
           `;
             $(postList).append(postHtml);
 
+            // Display first post automatically:
+            displaySelectedPost(posts[0].id);
+
             // Add click event
             $(postList)
               .find(".post-list-item")
@@ -105,7 +108,7 @@
               .off()
               .on("click", function () {
                 $(postList).find(".post-list-item").removeClass("selected");
-                $(this).addClass("selected");
+
                 displaySelectedPost(id);
               });
           });
@@ -120,8 +123,10 @@
 
         if (selectedPostContainer && posts && posts.length > 0) {
           const selectedPost = posts.find((post) => post.id == postId);
-          console.log(selectedPost);
+
           if (selectedPost) {
+            $(document).find(`#post-${postId}`).addClass("selected");
+
             const { title, body } = selectedPost;
             const postHtml = `
             <div class="post-display">
@@ -254,7 +259,7 @@
 
             try {
               const response = await useIDB.addData(commentData);
-              console.log("Comment add response: ", response);
+
               if (response.postId) {
                 $(selectedPostContainer).find(".no-comments-container").hide();
                 const commentHtml = `
@@ -292,7 +297,6 @@
 
           try {
             const dbComments = await useIDB.getDataByKey("postId", postId);
-            console.log("Found comments: ", dbComments);
 
             if (
               dbComments &&
@@ -314,7 +318,7 @@
             } */
           } catch (err) {
             $(commentsList).html("Unable to fetch comments.");
-            console.log(err);
+            console.error(err);
           }
 
           if (postComments.length > 0) {
@@ -450,9 +454,7 @@
             <h2>Posts</h2>
             <div class="post-list-container"></div>
           </div>
-          <div class="selected-post-container col-md-8 col-sm-9">
-            <span class="h2"><-- Select a post from the list on the left</span>
-          </div>
+          <div class="selected-post-container col-md-8 col-sm-9"></div>
         </section>
         <div
           class="toast bg-warning align-items-center position-fixed"
@@ -492,11 +494,17 @@
     color: var(--color-text);
     border-radius: 4px;
     width: 100%;
+    transition: 0.3s ease;
+  }
+
+  .post-list-item:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
   }
 
   .post-list-item.selected {
     font-weight: 600;
-    background: var(--color-primary);
+    background: var(--color-secondary);
     color: var(--color-white);
   }
 

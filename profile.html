@@ -31,6 +31,34 @@
     <!--helper snippets-->
     <script src="./script.js"></script>
   </head>
+
+  <script>
+    const user_data = {
+      firstname: "David",
+      lastname: "Lastname",
+      phone: "+47 4545 4545",
+      age: 99,
+      avatar: "./assets/img/dave.png",
+      address: {
+        street_address: "Street name 1",
+        post_code: "1234",
+        city: "City",
+        country: "Norway",
+      },
+      job_title: "Employed worker",
+      company: "Company name",
+      email: "3Bx4w@example.com",
+      description:
+        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae magnam laboriosam cumque dignissimos dolor maiores explicabo nam culpa suscipit saepe quod nemo inventore repellat, sit cupiditate ipsum nisi doloremque ducimus!",
+      skills: ["HTML", "CSS", "JS", "PHP", "SQL"],
+      interests: "Avid reader, music enthusiast, kite-surfer and dog owner.",
+    };
+
+    $(document).ready(function () {
+      // Script to dynamically build profile page based on fetched user data could go here
+    });
+  </script>
+
   <body>
     <header class="pt-4 px-3 container-fluid">
       <nav class="navbar navbar-expand-lg">
@@ -127,13 +155,13 @@
       </div>
       <main class="container-fluid">
         <section
-          class="container-sm profile-section mt-5 py-5 d-flex-column align-items-center"
+          class="container-sm profile-section mt-5 mb-5 py-5 d-flex-column align-items-center"
         >
           <div class="container-fluid mb-3">
             <h1>Profile info</h1>
           </div>
           <div
-            class="profile-info-container profile-header-info px-3 pt-3 pb-2"
+            class="profile-info-container profile-header-info position-relative position-relative px-3 pt-5 pb-2"
           >
             <div class="profile-avatar-container">
               <img
@@ -149,20 +177,26 @@
             </div>
             <div>
               <div class="profile-name"><h3>David Lastname</h3></div>
-              <span class="tel">Phone: +47 4545 4545</span>
-              <span class="age">Age: 99</span>
+              <span class="tel"
+                ><i class="fa-solid fa-phone"></i>
+                <a href="tel:+4745454545">+47 4545 4545</a></span
+              >
             </div>
           </div>
-          <div class="profile-info-container px-3 pt-5 pb-2 mt-5">
+          <div class="profile-info-container px-3 pt-5 pb-2 mt-3">
             <div
               class="main-profile-info-wrapper d-flex flex-row flex-wrap-reverse"
             >
               <div class="col-sm-9">
-                <div class="profile-info-group mb-5">
+                <div class="profile-info-group position-relative mb-2">
+                  <h4>Age</h4>
+                  <p>36</p>
+                </div>
+                <div class="profile-info-group position-relative pb-1 mb-5">
                   <h4>Occupation</h4>
                   <p>Employed worker</p>
                 </div>
-                <div class="profile-info-group mb-5">
+                <div class="profile-info-group position-relative pb-1 mb-5">
                   <h4>Description</h4>
                   <p>
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -171,7 +205,7 @@
                     repellat, sit cupiditate ipsum nisi doloremque ducimus!
                   </p>
                 </div>
-                <div class="profile-info-group mb-5">
+                <div class="profile-info-group position-relative pb-1 mb-5">
                   <h4>Skills</h4>
                   <ul class="">
                     <li>HTML</li>
@@ -181,7 +215,7 @@
                     <li>SQL</li>
                   </ul>
                 </div>
-                <div class="profile-info-group mb-5">
+                <div class="profile-info-group position-relative pb-1 mb-5">
                   <h4>Interests</h4>
                   <p>
                     Avid reader, music enthusiast, kite-surfer and dog owner.
@@ -189,13 +223,13 @@
                 </div>
               </div>
               <div class="col-sm-3 d-flex flex-column align-items-end mb-5">
-                <div class="profile-info-group me-3">
+                <div class="profile-info-group position-relative pb-1 me-3">
                   <h4>Address</h4>
                   <p>
-                    Street name 1<br />
-                    Street name 2<br />
-                    1234 City<br />
-                    Norway
+                    <i class="fa-solid fa-house"></i> Street name 1<br />
+                    <i class="fa-solid fa-house"></i> Street name 2<br />
+                    <i class="fa-solid fa-city"></i> 1234 City<br />
+                    <i class="fa-solid fa-globe"></i> Norway
                   </p>
                 </div>
               </div>
@@ -233,5 +267,35 @@
     align-items: flex-end;
     flex-wrap: wrap;
     gap: 32px;
+    background: url("./assets/img/profile-banner.jpg");
+    background-size: cover;
+    background-position: center bottom;
+    position: relative;
+  }
+  .profile-header-info * {
+    z-index: 1;
+    color: var(--color-white);
+  }
+
+  .profile-header-info::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 55%;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    opacity: 0.6;
+    z-index: 0;
+  }
+
+  .profile-info-group::after {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 2px;
+    background-color: var(--color-background-alt);
+    bottom: 0;
+    left: 0;
   }
 </style>

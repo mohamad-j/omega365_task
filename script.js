@@ -50,8 +50,6 @@ function displayLoader(container) {
 }
 
 function toggleSidebar() {
-  console.log("click");
-
   $(".sidebar").toggleClass("show clicked");
   if ($(".sidebar").hasClass("clicked")) {
     $(".toggle-out").html('<i class="fa-solid fa-arrow-right"></i>');
@@ -100,7 +98,7 @@ const useIDB = (() => {
 
       request.onsuccess = (event) => {
         db = event.target.result;
-        console.log(`[IndexedDB] ${dbName} opened successfully.`);
+
         resolve(db);
       };
 
