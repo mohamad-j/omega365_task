@@ -51,6 +51,14 @@
         console.error(err);
       }
 
+      // Initialise bootstrap toast
+      const toast = new bootstrap.Toast($(document).find(".toast"), {
+        animation: true,
+        autohide: true,
+        delay: 5000,
+      });
+
+      // Initialise posts loading
       getPosts();
 
       async function getPosts(callback) {
@@ -223,13 +231,17 @@
                       .removeAttr("disabled");
                   });
                 } else {
+                  let warningString = "";
                   if (!title) {
                     titleInput.addClass("border-danger");
+                    warningString += "Title is required. ";
                   }
                   if (!comment) {
                     commentInput.addClass("border-danger");
+                    warningString += "Comment is required. ";
                   }
-                  $(document).find(".toast").toast().show();
+                  $(document).find(".toast-body").html(warningString);
+                  toast.show();
                   $(this).removeAttr("disabled");
                 }
               });
@@ -450,7 +462,7 @@
           style="bottom: 1rem; right: 1rem"
         >
           <div class="d-flex">
-            <div class="toast-body">Hello, world! This is a toast message.</div>
+            <div class="toast-body"></div>
             <button
               type="button"
               class="btn-close me-2 m-auto"
